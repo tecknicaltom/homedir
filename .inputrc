@@ -1,0 +1,19 @@
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set bell-style visible
+
+"\e[B":		history-search-forward		# up arrow
+"\e[A":		history-search-backward		# down arrow
+"\e[D":		backward-char			# left arrow (ANSI)
+"\e[C":		forward-char			# right arrow (ANSI)
+"\e[5D":	backward-word			# ctrl-left
+"\e[5C":	forward-word			# ctrl-right
+#"\e[5A":	previous-history		# ctrl-up
+#"\e[5B":	next-history			# ctrl-down
+"\M-[3~":	delete-char				# delete key
+
+# Home Key
+"\e[7~":beginning-of-line
+
+# End Key
+"\e[8~":end-of-line
