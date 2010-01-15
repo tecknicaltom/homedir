@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use English;
+
+$OUTPUT_AUTOFLUSH = 1;
+
+while(<>) {
+	s/ error:/\033[1;31m error:\033[0m/;
+	s/ warning:/\033[1;33m warning:\033[0m/;
+	print;
+}
