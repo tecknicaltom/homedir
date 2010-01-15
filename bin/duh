@@ -1,0 +1,19 @@
+#!/bin/sh
+
+DU_OPTS=""
+SORT_OPTS=""
+
+while getopts ":cr" options ; do
+	case $options in
+		c ) DU_OPTS="-c";;
+		r ) SORT_OPTS="-r";;
+	esac
+done
+
+if [ $(($# - $OPTIND + 1)) -eq 0 ]
+then
+	duh $* *
+else
+	shift $(($OPTIND - 1))
+	du -sb $DU_OPTS "$@" | sort -n $SORT_OPTS | hr
+fi

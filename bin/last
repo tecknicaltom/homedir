@@ -1,0 +1,20 @@
+#!/bin/bash
+
+num=1
+
+while getopts "n:" flag
+do
+	case "$flag" in
+		n)
+			num=$OPTARG
+			;;
+		?)
+			echo "Usage: last [-n num] arguments..."
+			exit
+			;;
+	esac
+done
+
+shift $(($OPTIND - 1))
+shift $(( ($# - $num >= 0) ? ($# - $num) : 0 ))
+echo $@

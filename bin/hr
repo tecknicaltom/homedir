@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+if( @ARGV && $ARGV[0] eq "-k" ) {
+	shift;
+	$skip = 1;
+}
+
+@PREFIXES = ( "", "k", "M", "G", "T", "P" );
+
+while( <> ) {
+	if( /^ *([0-9]+)/ ) {
+		$num = $1;
+		$orignum = $num;
+		$divs = $skip;
+		while( $num > 1024 ) {
+			$num /= 1024;
+			$divs++;
+		}
+		if( $num < 10 ) {
+			$num = sprintf("%.1f", $num);
+		} else {
+			$num = int($num);
+		}
+		$hr = $num . $PREFIXES[$divs];
+		s/$orignum/$hr/;
+	}
+	print;
+}
