@@ -1,0 +1,25 @@
+#! /usr/bin/perl
+#
+# Prints n random lines from stdin
+# n is specified by the -n option, or 1 by default
+#
+
+use strict;
+use warnings;
+use Scalar::Util qw(looks_like_number);
+
+use Getopt::Std;
+my %options = ();
+getopts("n:", \%options);
+
+my $num = 1;
+$num = int($options{n}) if (defined($options{n}) && looks_like_number($options{n}) && int($options{n}) > 0);
+my @list;
+
+srand;
+
+while( <> ) {
+  push @list, $_;
+}
+
+print $list[ rand @list ] for (1..$num);
