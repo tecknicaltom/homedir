@@ -2,20 +2,20 @@
 
 DU_OPTS=""
 SORT_OPTS=""
-ALL_FILES=0
+ALL_FILES=false
 
-while getopts ":cr" options ; do
+while getopts ":cra" options ; do
 	case $options in
 		c ) DU_OPTS="-c";;
 		r ) SORT_OPTS="-r";;
-		a ) ALL_FILES=1;;
+		a ) ALL_FILES=true;;
 	esac
 done
 
 if [ $(($# - $OPTIND + 1)) -eq 0 ]
 then
 	RESTORE_DOTGLOB=$(shopt -p dotglob)
-	if [[ $ALL_FILES ]]
+	if $ALL_FILES
 	then
 		shopt -s dotglob
 	fi
