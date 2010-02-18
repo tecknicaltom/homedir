@@ -2,17 +2,25 @@
 
 DU_OPTS=""
 SORT_OPTS=""
+ALL_FILES=0
 
 while getopts ":cr" options ; do
 	case $options in
 		c ) DU_OPTS="-c";;
 		r ) SORT_OPTS="-r";;
+		a ) ALL_FILES=1;;
 	esac
 done
 
 if [ $(($# - $OPTIND + 1)) -eq 0 ]
 then
+	RESTORE_DOTGLOB=$(shopt -p dotglob)
+	if [[ $ALL_FILES ]]
+	then
+		shopt -s dotglob
+	fi
 	duh $* *
+	$($RESTORE_DOTGLOB)
 else
 	shift $(($OPTIND - 1))
 	du -sb $DU_OPTS "$@" | sort -n $SORT_OPTS | hr
