@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+#
+# Usage: rename [-p] perlexpr [files]
+
+use strict;
+use warnings;
+use Getopt::Std;
+
+my %options = ();
+getopts("p", \%options);
+
+(my $regexp = shift @ARGV) || die "Usage:  rename [-p] perlexpr [filenames]\n";
+
+if (!@ARGV) {
+	@ARGV = <STDIN>;
+	chomp(@ARGV);
+}
+
+
+foreach (@ARGV) {
+	my $old_name = $_;
+	eval $regexp;
+	die $@ if $@;
+	if (defined($options{p}))
+	{
+		print "renaming '$old_name' to '$_'\n";
+	}
+	else
+	{
+		rename($old_name, $_) unless $old_name eq $_;
+	}
+}
+
+exit(0);

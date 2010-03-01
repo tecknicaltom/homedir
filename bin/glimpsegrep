@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -d .glimpse ]
+then
+	if [ $OSTYPE == "cygwin" ]
+	then
+		/usr/local/bin/glimpse -nyH .glimpse "$@" | sed "s#$(cygpath -ua .)##"
+		exit
+	elif [ $(which glimpse 2>/dev/null ) ]
+	then
+		GLIMPSE=$(which glimpse)
+		$GLIMPSE -nyH .glimpse "$@"
+		exit
+	fi
+fi
+
+grep -nr "$@" .
