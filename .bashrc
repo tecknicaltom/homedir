@@ -14,39 +14,53 @@ alias lock="xscreensaver-command -lock"
 alias externIp="wget --quiet --output-document\=- ip.modtwo.com"
 alias cp="cp -i"
 alias mv="mv -i"
+alias hd="hexdump -C"
 alias printCode="enscript -T 4 -r2GC -E -DDuplex:true "
+alias ctags="exuberant-ctags --langmap=C++:+.CPP.HPP --extra=qf -R"
 function mkcd {
 	mkdir -p "$1" && cd "$1"
 }
 
+shopt -s no_empty_cmd_completion # dont try completion with nothing in the current line
+
 export PATH=~/bin/:$PATH
+export EDITOR=vim
 export HISTIGNORE="&:ls:[bf]g:exit"
 export LESSCHARSET="utf-8"
+export FIGNORE=":.svn:.git:.DS_Store:.TemporaryItems:.\:2eDS_Store:.AppleDouble"
 COLOR_ERROR='1;31'
 PWDMAXLENGTH=30
 PROMPTTRUNCSYM="..."
 
 # Make terminal-specific changges
 case $TERM in
-  xterm*|rxvt|Eterm|eterm|rxvt-unicode)
+  xterm*|rxvt|Eterm|eterm|rxvt-unicode*)
     PROMPT_COMMAND_TITLE="\033]0;USER@HOSTNAME:CURRDIR\007"
-    export LC_ALL="en_US.UTF-8"
+    export LANG="en_US.UTF-8"
+    export LC_COLLATE="C"
     ;;
   rxvt-cygwin-native)
     PROMPT_COMMAND_TITLE="\033]0;USER@HOSTNAME:CURRDIR\007"
-    export LC_ALL="C"
+    export LANG="C"
     ;;
   screen)
     PROMPT_COMMAND_TITLE='\033_USER@HOSTNAME:CURRDIR\033\\'
-    export LC_ALL="en_US.UTF-8"
+    export LANG="en_US.UTF-8"
+    export LC_COLLATE="C"
     ;;
   linux)
-    export LC_ALL="en_US.UTF-8"
+    export LANG="en_US.UTF-8"
+    export LC_COLLATE="C"
     ;;
   *)
-    export LC_ALL="POSIX"
+    export LANG="POSIX"
     ;;
 esac
+
+HOSTNAME_CRC=$(echo $HOSTNAME | tr 'A-Z' 'a-z' | cksum)
+HOSTNAME_CRC=${HOSTNAME_CRC%% *}
+HOSTCOLOR_A=$(( (0x${HOSTNAME_CRC} + 1) % 2 ))
+HOSTCOLOR_B=$(( 0x${HOSTNAME_CRC} % 8 + 30 ))
 
 PROMPT_COMMAND=promptcommand
 function promptcommand {
@@ -67,9 +81,9 @@ function promptcommand {
 
   if [ $TMPSTAT -gt 0 ]
   then
-    PS1="[\[\033[0;34m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\]:\[\033[\${COLOR_ERROR}m\]\$TMPSTAT\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
+    PS1="[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[\${COLOR_ERROR}m\]\$TMPSTAT\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
   else
-    PS1="[\[\033[0;34m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
+    PS1="[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
   fi
 
   unset TMPTITLE
