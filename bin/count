@@ -1,4 +1,15 @@
-#!/bin/bash
+#!/usr/bin/perl
 
-sort | uniq -c | sort -n
+while(<>)
+{
+	$counts{$_}++;
+}
+foreach (sort { $counts{$a} <=> $counts{$b} } keys %counts)
+{
+	printf "%-6d %s", $counts{$_}, $_;
+}
+
+# Old version:
+#!/bin/bash
+# sort | uniq -c | sort -n
 
