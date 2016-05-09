@@ -33,7 +33,7 @@ export LESSCHARSET="utf-8"
 export FIGNORE=":.svn:.git:.DS_Store:.TemporaryItems:.\:2eDS_Store:.AppleDouble"
 COLOR_ERROR='1;31'
 PWDMAXLENGTH=30
-PROMPTTRUNCSYM="..."
+PROMPTTRUNCSYM="…"
 
 # Make terminal-specific changges
 case $TERM in
