@@ -23,6 +23,9 @@ alias ctags="exuberant-ctags --langmap=C++:+.CPP.HPP --extra=qf -R"
 function mkcd {
 	mkdir -p "$1" && cd "$1"
 }
+function ppgrep() {
+	pgrep -f "$1" | xargs --no-run-if-empty ps -efo pid,args -p
+}
 
 shopt -s no_empty_cmd_completion # dont try completion with nothing in the current line
 
