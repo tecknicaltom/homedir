@@ -5,7 +5,10 @@
 # file *should generate no output* or it will break the scp and rcp commands.
 
 # colors for ls, etc.
-eval `dircolors -b /etc/DIR_COLORS`
+if [ -e /etc/DIR_COLORS ]
+then
+	eval `dircolors -b /etc/DIR_COLORS`
+fi
 alias ls="ls -F --color=auto"
 alias ll="ls -F --color -lh"
 alias rip="rip -SOTcn -f '%A - %T - %N - %S'"
