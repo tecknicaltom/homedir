@@ -81,12 +81,30 @@ function promptcommand {
     TMPDIR="${PROMPTTRUNCSYM}${TMPDIR:$PWDOFFSET:$PWDMAXLENGTH}"
   fi
 
+  if [ -n "$VIRTUAL_ENV" ]
+  then
+    VENV="$(basename "$VIRTUAL_ENV")"
+    if [[ "$VENV" == "env" ]]
+    then
+      VENV="$(basename "$(realpath "$VIRTUAL_ENV"/..)")"
+    fi
+    ENV_PREFIX="($VENV) "
+  else
+    ENV_PREFIX=""
+  fi
+
+  GIT_BRANCH="`git branch 2> /dev/null | grep -e ^* | sed -E  's/^\* //'`"
+  GIT_PREFIX=""
+  if [ ! -z "$GIT_BRANCH" ]
+  then
+    GIT_PREFIX="{$GIT_BRANCH} "
+  fi
 
   if [ $TMPSTAT -gt 0 ]
   then
-    PS1="[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[\${COLOR_ERROR}m\]\$TMPSTAT\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
+    PS1="$ENV_PREFIX$GIT_PREFIX[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[\${COLOR_ERROR}m\]\$TMPSTAT\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
   else
-    PS1="[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
+    PS1="$ENV_PREFIX$GIT_PREFIX[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
   fi
 
   unset TMPTITLE
