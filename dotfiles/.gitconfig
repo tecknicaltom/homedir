@@ -12,3 +12,6 @@
 
 [push]
 	default = simple
+
+[log]
+	decorate = short
