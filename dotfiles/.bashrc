@@ -60,6 +60,8 @@ case $TERM in
     ;;
 esac
 
+export LC_TIME="en_DK"
+
 HOSTNAME_CRC=$(echo $HOSTNAME | tr 'A-Z' 'a-z' | cksum)
 HOSTNAME_CRC=${HOSTNAME_CRC%% *}
 HOSTCOLOR_A=$(( (0x${HOSTNAME_CRC} + 1) % 2 ))
