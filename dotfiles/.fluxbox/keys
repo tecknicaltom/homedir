@@ -63,7 +63,7 @@ Mod4 M :Maximize
 Mod4 S :Shade
 Mod4 D :ToggleDecor
 Mod4 Y :StickWindow
-Mod4 T :ArrangeWindows
+!Mod4 T :ArrangeWindows
 
               Mod4 Up    :MoveUp    20
               Mod4 Down  :MoveDown  20
