@@ -59,6 +59,11 @@ Mod4 8 :TakeToWorkspace 8
 Control F1 :Exec urxvt &
 Control F2 :Exec LC_ALL=C xcalc &
 
+XF86ScreenSaver :Exec xscreensaver-command -lock
+XF86Sleep :Exec xscreensaver-command -lock ; sudo pm-suspend ; sleep 3 && killall -SIGUSR1 autossh
+XF86MonBrightnessUp :Exec xbacklight +10
+XF86MonBrightnessDown :Exec xbacklight -10
+
 Mod4 M :Maximize
 Mod4 S :Shade
 Mod4 D :ToggleDecor
