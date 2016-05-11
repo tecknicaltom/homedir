@@ -57,7 +57,8 @@ Mod4 7 :TakeToWorkspace 7
 Mod4 8 :TakeToWorkspace 8
 
 Control F1 :Exec urxvt &
-Control F2 :Exec LC_ALL=C xcalc &
+Control F2 :Exec gvim &
+Control F3 :Exec dmenu_programs.sh &
 
 XF86ScreenSaver :Exec xscreensaver-command -lock
 XF86Sleep :Exec xscreensaver-command -lock ; sudo pm-suspend ; sleep 3 && killall -SIGUSR1 autossh
