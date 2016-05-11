@@ -118,6 +118,8 @@ function promptcommand {
 #  unset TMPSTAT
 }
 
+eval `keychain -q --eval`
+
 ##uncomment the following to activate bash-completion:
 [ -f /etc/profile.d/bash-completion.sh ] && source /etc/profile.d/bash-completion.sh
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
