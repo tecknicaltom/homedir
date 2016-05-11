@@ -42,7 +42,6 @@ xsetbg -fullscreen /home/tsamstag/.fluxbox/backgrounds/002_f.jpg -border black
 # wmsmixer -w &
 # idesk &
 xscreensaver -no-splash &
-bubblefishymon -f -u &
 gkrellm -w &
 
 synergyc 192.168.3.1 &
