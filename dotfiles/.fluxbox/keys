@@ -61,7 +61,6 @@ Control F2 :Exec LC_ALL=C xcalc &
 
 Mod4 M :Maximize
 Mod4 S :Shade
-Mod4 L xscreensaver-command -lock
 Mod4 D :ToggleDecor
 Mod4 Y :StickWindow
 Mod4 T :ArrangeWindows
