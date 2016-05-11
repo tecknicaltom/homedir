@@ -101,3 +101,6 @@ OnDesktop Mouse2 :workspaceMenu
 OnDesktop Mouse3 :rootMenu
 OnDesktop Mouse4 :nextWorkspace
 OnDesktop Mouse5 :prevWorkspace
+
+Mod4 c :Exec capture
+Mod4 v :Exec xsel -o | xsel -ib
