@@ -1,5 +1,5 @@
-Mod1 Tab :NextWindow
-Mod1 Shift Tab :PrevWindow
+Mod1 Tab :NextWindow (workspace=[current])
+Mod1 Shift Tab :PrevWindow (workspace=[current])
 Mod1 F1 :Workspace 1
 Mod1 F2 :Workspace 2
 Mod1 F3 :Workspace 3
