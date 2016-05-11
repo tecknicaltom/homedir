@@ -15,27 +15,26 @@
 #   you can change the menu name in .fluxbox/init to:
 #     session.menuFile: /home/you/.fluxbox/my-menu
 [begin] (Fluxbox-0.9.10)
-	[exec]    (xterm) {uxterm}
+	[exec]    (term) {urxvt}
 	[submenu] (Net)
 		[exec] (Firefox) {firefox}
 		[exec] (Thunderbird) {thunderbird}
 		[exec] (Pidgin) {pidgin}
-#		[exec] (Gaim) {gaim}
-		[exec] (Mozilla) {mozilla}
 		[exec] (Graphical Links) {links -g}
-		[exec] (lynx) {xterm -e lynx fluxbox.org}
-	[end]
-	[submenu] (p2p)
-		[exec] (Azureus) {azureus}
-		[exec] (Valknut) {valknut}
+		[exec] (lynx) {xterm -e lynx}
+		[exec] (Wireshark) {wireshark-gtk}
 	[end]
 	[submenu] (Editors)
 		[exec] (gvim) {gvim}
-		[exec] (xedit) {xedit}
 		[exec] (nano) {xterm -e nano}
 	[end]
+	[submenu] (p2p)
+		[exec] (Deluge) {deluge}
+	[end]
 	[submenu] (Multimedia)
-		[exec] (audacious) {audacious}
+		[exec] (quod libet) {quodlibet}
+		[exec] (pavucontrol) {pavucontrol}
+		[exec] (gimp) {gimp}
 		[submenu] (X-utils)
 			[exec] (xfontsel) {xfontsel}
 			[exec] (xman) {xman}
@@ -46,8 +45,10 @@
 			[exec] (xmag) {xmag}
 		[end]
 	[end]
-	[submenu] (Office)
+	[submenu] (Productivity)
+		[exec] (Gramps) {gramps}
 		[exec] (OpenOffice.org 2) {ooffice}
+		[exec] (gdmap) {gdmap}
 		[exec] (xclock) {xclock}
 		[exec] (xcalc) {xcalc}
 	[end]
