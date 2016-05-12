@@ -1,0 +1,29 @@
+! Misc.
+Keyboard.DeleteChar:    \b
+*Label.font:            *-helvetica-bold-r-*-12-*
+*customization:         -color
+
+urxvt*background:                black
+urxvt*foreground:                green
+urxvt*scrollBar:                 on
+urxvt*saveLines:                 10000
+urxvt.font:                      -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+urxvt.boldFont:                  -misc-fixed-bold-r-semicondensed--13-120-75-75-c-60-iso10646-1
+urxvt.url-launcher:              /usr/bin/firefox
+urxvt.keysym.C-Delete:           perl:matcher:last
+urxvt.keysym.M-Delete:           perl:matcher:list
+urxvt*scrollstyle:               plain
+urxvt.secondaryScroll:           true
+urxvt.fading:                    50%
+urxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/vi +$2 \\Q$1\\E\\x0d/
+urxvt.perl-ext-common:           default,selection-autotransform,matcher,font-size
+! urxvt.perl-ext: sound
+urxvt.keysym.C-equal: perl:font-size:increase
+urxvt.keysym.C-minus: perl:font-size:decrease
+urxvt.keysym.C-0:     perl:font-size:reset
+
+! #urxvt.matcher.button: 2
+! #urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+
+*dpi: 96
+xpdf.initialZoom: page
