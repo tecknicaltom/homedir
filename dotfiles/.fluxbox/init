@@ -84,7 +84,7 @@ session.doubleClickInterval:	250
 session.imageDither:	True
 session.keyFile:	~/.fluxbox/keys
 session.colorsPerChannel:	4
-session.slitlistFile:	/home/tsamstag/.fluxbox/slitlist
+session.slitlistFile:	~/.fluxbox/slitlist
 session.opaqueMove:	False
 session.configVersion:	1
 session.tabPadding:	0
@@ -99,7 +99,7 @@ session.useMod1:	true
 session.styleOverlay:	~/.fluxbox/overlay
 session.updateDelayTime:	0
 session.tabs:	False
-session.styleFile:	/home/tsamstag/.fluxbox/styles/MyNyz
+session.styleFile:	~/.fluxbox/styles/MyNyz
 session.groupFile:	
 session.numLayers:	13
 session.cacheMax:	200l
