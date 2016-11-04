@@ -123,6 +123,7 @@ eval `keychain -q --eval`
 ##uncomment the following to activate bash-completion:
 [ -f /etc/profile.d/bash-completion.sh ] && source /etc/profile.d/bash-completion.sh
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 case $HOSTNAME in
 	tomslappy)
