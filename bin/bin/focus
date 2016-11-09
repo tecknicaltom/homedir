@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# the following command should work, but it does not...
+# xdotool search --onlyvisible --name $1 getwindowname %@ windowfocus %@ windowraise %@
+
+if [[ $# -lt 1 ]]
+then
+	echo "Usage: focus search_text"
+	exit
+fi
+
+xdotool search --onlyvisible --name "$1" | while read handle
+do
+	xdotool getwindowname $handle
+	xdotool windowfocus $handle
+	xdotool windowraise $handle
+	sleep 0.01
+done
