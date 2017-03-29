@@ -1,6 +1,6 @@
 #!/bin/bash
 
-exuberant-ctags .
+ctags .
 mkdir .glimpse
 echo '*/tags$' > .glimpse/.glimpse_exclude
 echo '.svn' >> .glimpse/.glimpse_exclude
