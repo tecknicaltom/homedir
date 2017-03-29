@@ -1,0 +1,10 @@
+#!/bin/bash
+
+exuberant-ctags .
+mkdir .glimpse
+echo '*/tags$' > .glimpse/.glimpse_exclude
+echo '.svn' >> .glimpse/.glimpse_exclude
+echo 'YASAT'>> .glimpse/.glimpse_exclude
+echo '.glimpse' >> .glimpse/.glimpse_exclude
+echo 'doxygen' >> .glimpse/.glimpse_exclude
+LC_ALL=C glimpseindex -H .glimpse/ .
