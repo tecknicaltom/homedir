@@ -19,7 +19,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias hd="hexdump -C"
 alias printCode="enscript -T 4 -r2GC -E -DDuplex:true "
-alias ctags="exuberant-ctags --langmap=C++:+.CPP.HPP --extra=qf -R"
 function mkcd {
 	mkdir -p "$1" && cd "$1"
 }
