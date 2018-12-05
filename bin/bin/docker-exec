@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]
+then
+	echo "Usage: $0 service_id program [...]"
+fi
+
+service_id=$1
+shift
+
+container_id=$(docker ps --filter name="$service_id" --filter status=running -q | head -n1)
+docker exec -it "$container_id" "$@"
