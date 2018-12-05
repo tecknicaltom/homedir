@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Data::Dumper;
+
+my $count = 0;
+
+while(<>)
+{
+	print;
+	$count++;
+}
+
+print "$count\n";
