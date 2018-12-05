@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Data::Dumper;
+
+while(<>)
+{
+	print chr(hex($_)) for (/([0-9a-f]{2})/ig);
+}
