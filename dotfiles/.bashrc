@@ -19,11 +19,25 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias hd="hexdump -C"
 alias printCode="enscript -T 4 -r2GC -E -DDuplex:true "
+alias download_magnet="aria2c --bt-metadata-only=true --bt-save-metadata=true "
+alias msfconsole="docker run -it --rm --network host metasploitframework/metasploit-framework"
+alias pinggw='ping $(netstat --inet -rn|grep ^0.0.0.0|awk "{print \$2}")'
 function mkcd {
 	mkdir -p "$1" && cd "$1"
 }
 function ppgrep() {
 	pgrep -f "$1" | xargs --no-run-if-empty ps -efo pid,args -p
+}
+function tok {
+	awk -v field="$1" '{print $field }';
+}
+function lpass() {
+	if [[ "$1" == "show" ]]
+	then
+		command lpass "$@" 2>/dev/null || (shift ; command lpass show -F "$@" 2>/dev/null || command lpass show -G "$@")
+	else
+		command lpass "$@"
+	fi
 }
 
 shopt -s no_empty_cmd_completion # dont try completion with nothing in the current line
@@ -33,6 +47,7 @@ export EDITOR=vim
 export HISTIGNORE="&:ls:[bf]g:exit"
 export LESSCHARSET="utf-8"
 export FIGNORE=":.svn:.git:.DS_Store:.TemporaryItems:.\:2eDS_Store:.AppleDouble"
+export GTK_THEME="Raleigh-Reloaded"
 COLOR_ERROR='1;31'
 PWDMAXLENGTH=30
 PROMPTTRUNCSYM="…"
@@ -97,18 +112,24 @@ function promptcommand {
     ENV_PREFIX=""
   fi
 
-  GIT_BRANCH="`git branch 2> /dev/null | grep -e ^* | sed -E  's/^\* //'`"
+  GIT_BRANCH="`git rev-parse --abbrev-ref HEAD 2>/dev/null`"
   GIT_PREFIX=""
   if [ ! -z "$GIT_BRANCH" ]
   then
     GIT_PREFIX="{$GIT_BRANCH} "
   fi
 
+  DOCKER_MACHINE_PREFIX=""
+  if [ ! -z "$DOCKER_MACHINE_NAME" ]
+  then
+    DOCKER_MACHINE_PREFIX="[$DOCKER_MACHINE_NAME]"
+  fi
+
   if [ $TMPSTAT -gt 0 ]
   then
-    PS1="$ENV_PREFIX$GIT_PREFIX[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[\${COLOR_ERROR}m\]\$TMPSTAT\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
+    PS1="$ENV_PREFIX$DOCKER_MACHINE_PREFIX$GIT_PREFIX[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[\${COLOR_ERROR}m\]\$TMPSTAT\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
   else
-    PS1="$ENV_PREFIX$GIT_PREFIX[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
+    PS1="$ENV_PREFIX$DOCKER_MACHINE_PREFIX$GIT_PREFIX[\[\033[0;34m\]\u\[\033[0m\]@\[\033[${HOSTCOLOR_A};${HOSTCOLOR_B}m\]\h\[\033[0m\]:\[\033[0;32m\]$TMPDIR\[\033[0m\]] "
   fi
 
   unset TMPTITLE
@@ -117,6 +138,7 @@ function promptcommand {
 #  unset TMPSTAT
 }
 
+export LPASS_AGENT_TIMEOUT=0
 eval `keychain -q --eval`
 
 ##uncomment the following to activate bash-completion:
@@ -139,3 +161,23 @@ case $HOSTNAME in
 		cd
 		;;
 esac
+
+
+__docker_complete_containers_running_basenames() {
+	COMPREPLY=()
+	local cur
+	cur=${COMP_WORDS[COMP_CWORD]}
+
+	if [ ${COMP_CWORD} -eq 1 ]; then
+		local containers=( $(docker ps -aq --no-trunc --filter status=running) )
+		local names=( $(docker inspect --format '{{.Name}}' "${containers[@]}") )
+		names=( "${names[@]#/}" ) # trim off the leading "/" from the container names
+		names=( "${names[@]%%.*}" ) # trim from .
+		COMPREPLY=( $(compgen -W "${names[*]}" -- "$cur"))
+	else
+		_filedir
+	fi
+	return 0
+}
+
+complete -F __docker_complete_containers_running_basenames docker-exec
