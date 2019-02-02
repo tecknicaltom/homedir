@@ -44,7 +44,8 @@ xsetbg -fullscreen /home/tsamstag/.fluxbox/backgrounds/002_f.jpg -border black
 xscreensaver -no-splash &
 gkrellm -w &
 
-synergyc 192.168.3.1 &
+thunderbird &
+pidgin &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
