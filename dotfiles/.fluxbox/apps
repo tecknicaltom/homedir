@@ -1,0 +1,23 @@
+[app] (name=fbrun)
+  [Position]	(CENTER)	{0 0}
+  [Layer]	{2}
+[end]
+[app] (name=Navigator) (class=Firefox) (role=browser)
+  [Workspace]	{0}
+[end]
+[app] (name=quodlibet) (class=Quodlibet)
+  [Workspace]	{1}
+  [Dimensions]	{1838 1057}
+  [Position]	(UPPERLEFT)	{0 0}
+[end]
+[app] (name=Mail) (class=Thunderbird) (role=3pane)
+  [Workspace]	{4}
+  [Dimensions]	{1838 1057}
+  [Position]	(UPPERLEFT)	{-2 -2}
+[end]
+[app] (name=Pidgin) (class=Pidgin) (role=buddy_list)
+  [Workspace]	{0}
+  [Dimensions]	{23% 91%}
+  [Position]	(UPPERLEFT)	{77% 0%}
+  [Close]	{yes}
+[end]
