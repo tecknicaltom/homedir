@@ -1,0 +1,15 @@
+[submodule "dotfiles/.vim/bundle/Recover.vim"]
+	path = dotfiles/.vim/bundle/Recover.vim
+	url = https://github.com/chrisbra/Recover.vim.git
+[submodule "dotfiles/.vim/bundle/git-time-lapse"]
+	path = dotfiles/.vim/bundle/git-time-lapse
+	url = https://github.com/vim-scripts/git-time-lapse
+[submodule "dotfiles/.vim/bundle/incsearch.vim"]
+	path = dotfiles/.vim/bundle/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim
+[submodule "dotfiles/.vim/bundle/linediff.vim"]
+	path = dotfiles/.vim/bundle/linediff.vim
+	url = https://github.com/AndrewRadev/linediff.vim
+[submodule "dotfiles/.vim/bundle/perldoc-vim"]
+	path = dotfiles/.vim/bundle/perldoc-vim
+	url = https://github.com/hotchpotch/perldoc-vim.git
