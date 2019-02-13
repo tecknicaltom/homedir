@@ -21,6 +21,7 @@ alias hd="hexdump -C"
 alias printCode="enscript -T 4 -r2GC -E -DDuplex:true "
 alias download_magnet="aria2c --bt-metadata-only=true --bt-save-metadata=true "
 alias msfconsole="docker run -it --rm --network host metasploitframework/metasploit-framework"
+alias pwned="sudo docker run -it node npx pwned"
 alias pinggw='ping $(netstat --inet -rn|grep ^0.0.0.0|awk "{print \$2}")'
 function mkcd {
 	mkdir -p "$1" && cd "$1"
