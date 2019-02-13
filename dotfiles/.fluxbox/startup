@@ -46,6 +46,8 @@ gkrellm -w &
 
 thunderbird &
 pidgin &
+dropbox &> $HOME/.dropbox/dropbox.log &
+slack &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
