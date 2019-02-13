@@ -59,6 +59,7 @@ Control F2 :Exec gvim &
 Control F3 :Exec dmenu_programs.sh &
 
 XF86ScreenSaver :Exec xscreensaver-command -lock
+Mod4 space :Exec xscreensaver-command -lock
 XF86Sleep :Exec xscreensaver-command -lock ; sudo pm-suspend ; sleep 3 && killall -SIGUSR1 autossh
 XF86MonBrightnessUp :Exec xbacklight +10
 XF86MonBrightnessDown :Exec xbacklight -10
