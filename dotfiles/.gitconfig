@@ -23,5 +23,5 @@
 [commit]
 	verbose = true
 
-[includeIf "gitdir:~/work/"]
+[includeIf "gitdir:~/work/**"]
 	path = ~/work/.gitconfig
