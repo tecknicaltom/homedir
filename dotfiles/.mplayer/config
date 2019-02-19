@@ -1,0 +1,6 @@
+ao=pulse
+vo=gl
+#vo=xv
+cache=8192
+cache-min=1
+af=scaletempo
