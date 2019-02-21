@@ -22,7 +22,7 @@
 		[exec] (Pidgin) {pidgin}
 		[exec] (Graphical Links) {links -g}
 		[exec] (lynx) {xterm -e lynx}
-		[exec] (Wireshark) {wireshark-gtk}
+		[exec] (Wireshark) {wireshark}
 	[end]
 	[submenu] (Editors)
 		[exec] (gvim) {gvim}
