@@ -10,3 +10,6 @@
 [submodule "dotfiles/.vim/bundle/perldoc-vim"]
 	path = dotfiles/.vim/bundle/perldoc-vim
 	url = https://github.com/hotchpotch/perldoc-vim.git
+[submodule "dotfiles/.vim/bundle/vim-templates"]
+	path = dotfiles/.vim/bundle/vim-templates
+	url = https://github.com/ap/vim-templates

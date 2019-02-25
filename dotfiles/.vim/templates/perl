@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use diagnostics;
+use Data::Dumper;
+use feature qw(say signatures);
+no warnings "experimental::signatures";
+use List::Util qw(min max);
+
+
+# cursor: 11 del
