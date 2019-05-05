@@ -14,6 +14,7 @@ urxvt.keysym.C-Delete:           perl:matcher:last
 urxvt.keysym.M-Delete:           perl:matcher:list
 urxvt*scrollstyle:               plain
 urxvt.secondaryScroll:           true
+urxvt.secondaryWheel:            true
 urxvt.fading:                    50%
 urxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/vi +$2 \\Q$1\\E\\x0d/
 urxvt.perl-ext-common:           default,selection-autotransform,matcher,font-size
