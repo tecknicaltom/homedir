@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ $# -lt 1 ]]
+then
+	echo "Usage: focus pid"
+	exit
+fi
+
+pid="$1"
+while :
+do
+
+	handles=$(xdotool search --onlyvisible --pid "$pid")
+	for handle in $handles
+	do
+		xdotool getwindowname $handle
+		xdotool windowfocus $handle
+		xdotool windowraise $handle
+		#sleep 0.01
+	done
+
+	if [[ -n "$handles" ]]
+	then
+		exit
+	fi
+
+	if [[ ! -r /proc/"$pid"/status ]]
+	then
+		echo "Cannot read info for pid $pid"
+		exit
+	fi
+
+	ppid=$(grep '^PPid:' /proc/"$pid"/status | awk '{print $2}')
+	if [[ -z "$ppid" ]]
+	then
+		echo "Cannot find parent pid of pid $pid"
+		exit
+	fi
+	pid="$ppid"
+
+done
