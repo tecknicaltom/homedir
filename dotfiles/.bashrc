@@ -104,7 +104,7 @@ function promptcommand {
   if [ -n "$VIRTUAL_ENV" ]
   then
     VENV="$(basename "$VIRTUAL_ENV")"
-    if [[ "$VENV" == "env" ]]
+    if [[ "$VENV" == "env" || "$VENV" == "venv" ]]
     then
       VENV="$(basename "$(realpath "$VIRTUAL_ENV"/..)")"
     fi
