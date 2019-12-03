@@ -1,6 +1,8 @@
---exclude=doxygen
 --exclude=*.min.js
+--exclude=*.pb
 --exclude=.git
+--exclude=bazel-out
+--exclude=doxygen
 --totals=yes
 --langmap=C++:+.CPP.HPP
 --extra=qf
