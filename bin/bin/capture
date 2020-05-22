@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BURP_PORT=8080
+
+if [[ -e ~/.capture ]]
+then
+	OUTDIR=$(cat ~/.capture)
+else
+	OUTDIR=/tmp
+fi
+
+FILENAME="$OUTDIR"/$(date +%F_%H%M%S_%N)
+burp_request=$(http_proxy=http://localhost:$BURP_PORT wget -O- -q  http://burp/history | grep -o '/orig/[0-9]\+' | tail -n 1 | sed 's#/orig/##')
+if [[ ! -z $burp_request ]]
+then
+	FILENAME="$FILENAME"_burp$burp_request
+fi
+FILENAME="$FILENAME".png
+import -window "$(xdotool getwindowfocus -f)" "$FILENAME"
