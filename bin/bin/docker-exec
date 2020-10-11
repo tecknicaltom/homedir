@@ -8,5 +8,11 @@ fi
 service_id=$1
 shift
 
-container_id=$(docker ps --filter name="$service_id" --filter status=running -q | head -n1)
+container_id=$(
+    docker ps --filter name="$service_id" --filter status=running --format '{{.Names}} {{.ID}}' |
+    awk '{print length($1)-length("'"$name"'") " " index($1, "'"$name"'") " " $_}' |
+    sort -k1,1n -k2,2n -k3,3 |
+    awk '{print $4}' |
+    head -n1
+)
 docker exec -it "$container_id" "$@"
