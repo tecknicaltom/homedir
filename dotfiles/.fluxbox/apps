@@ -21,3 +21,8 @@
   [Position]	(UPPERLEFT)	{77% 0%}
   [Close]	{yes}
 [end]
+[app] (name=io.github.quodlibet.QuodLibet) (class=Quodlibet)
+  [Workspace]	{1}
+  [Dimensions]	{1838 1057}
+  [Position]	(UPPERLEFT)	{0 0}
+[end]
