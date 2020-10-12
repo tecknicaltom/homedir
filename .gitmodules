@@ -13,3 +13,6 @@
 [submodule "dotfiles/.vim/bundle/vim-templates"]
 	path = dotfiles/.vim/bundle/vim-templates
 	url = https://github.com/ap/vim-templates
+[submodule "dotfiles/.vim/bundle/spelunker.vim"]
+	path = dotfiles/.vim/bundle/spelunker.vim
+	url = https://github.com/kamykn/spelunker.vim
