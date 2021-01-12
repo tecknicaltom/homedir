@@ -57,6 +57,7 @@ Mod4 10 :TakeToWorkspace 10
 Control F1 :Exec urxvt &
 Control F2 :Exec gvim &
 Control F3 :Exec dmenu_programs.sh &
+Control F4 :Exec dmenu_focus.sh &
 
 XF86ScreenSaver :Exec xscreensaver-command -lock
 Mod4 space :Exec xscreensaver-command -lock
