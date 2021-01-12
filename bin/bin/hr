@@ -16,7 +16,7 @@ while( <> ) {
 			$num /= 1024;
 			$divs++;
 		}
-		if( $num < 10 ) {
+		if( $num < 10 && $divs > 0 ) {
 			$num = sprintf("%.1f", $num);
 		} else {
 			$num = int($num);
