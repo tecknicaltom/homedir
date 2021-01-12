@@ -4,10 +4,17 @@ import csv
 import json
 import sys
 
-if __name__ == '__main__':
+def convert(r):
+    reader = csv.DictReader(r)
+    print(json.dumps(list(row for row in reader)))
 
-    with open(sys.argv[1]) as csvfile:
-        reader = csv.DictReader(csvfile)
-        print(json.dumps(list(row for row in reader)))
-        #for row in reader:
-        #    print(json.dumps(row))
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        sys.argv.append("-")
+
+    for fname in sys.argv[1:]:
+        if fname == "-":
+            convert(sys.stdin)
+        else:
+            with open(fname) as csvfile:
+                convert(csvfile)
