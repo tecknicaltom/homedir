@@ -4,7 +4,7 @@ while(<>)
 {
 	$counts{$_}++;
 }
-foreach (sort { $counts{$a} <=> $counts{$b} } keys %counts)
+foreach (sort { $counts{$a} <=> $counts{$b} || $a cmp $b } keys %counts)
 {
 	printf "%-6d %s", $counts{$_}, $_;
 }
