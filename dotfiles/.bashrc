@@ -50,6 +50,7 @@ export LESSCHARSET="utf-8"
 export LESS="-RMi --shift 5 -j3"
 export FIGNORE=":.svn:.git:.DS_Store:.TemporaryItems:.\:2eDS_Store:.AppleDouble"
 export GTK_THEME="Raleigh-Reloaded"
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
 COLOR_ERROR='1;31'
 PWDMAXLENGTH=30
 PROMPTTRUNCSYM="…"
