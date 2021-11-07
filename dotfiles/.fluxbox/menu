@@ -23,6 +23,7 @@
 		[exec] (Graphical Links) {links -g}
 		[exec] (lynx) {xterm -e lynx}
 		[exec] (Wireshark) {wireshark}
+		[exec] (Signal) {signal-desktop --use-tray-icon}
 	[end]
 	[submenu] (Editors)
 		[exec] (gvim) {gvim}
