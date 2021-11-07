@@ -5,7 +5,7 @@
 --exclude=doxygen
 --totals=yes
 --langmap=C++:+.CPP.HPP
---extra=qf
+--extras=+qf
 --python-kinds=-i
 -R
 --langdef=scala
