@@ -16,3 +16,9 @@
 [submodule "dotfiles/.vim/bundle/spelunker.vim"]
 	path = dotfiles/.vim/bundle/spelunker.vim
 	url = https://github.com/kamykn/spelunker.vim
+[submodule "dotfiles/.vim/bundle/gitdiff.vim"]
+	path = dotfiles/.vim/bundle/gitdiff.vim
+	url = https://github.com/vim-scripts/gitdiff.vim
+[submodule "dotfiles/.vim/bundle/vim-vue"]
+	path = dotfiles/.vim/bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git
