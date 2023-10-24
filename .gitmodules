@@ -25,3 +25,6 @@
 [submodule "dotfiles/.vim/bundle/vim-jsonpath"]
 	path = dotfiles/.vim/bundle/vim-jsonpath
 	url = https://github.com/mogelbrod/vim-jsonpath
+[submodule "dotfiles/.vim/molokai"]
+	path = dotfiles/.vim/molokai
+	url = https://github.com/tomasr/molokai
