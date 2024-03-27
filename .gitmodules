@@ -28,3 +28,6 @@
 [submodule "dotfiles/.vim/bundle/molokai"]
 	path = dotfiles/.vim/pack/plugins/start/molokai
 	url = https://github.com/tomasr/molokai
+[submodule "dotfiles/.vim/pack/plugins/start/vindent.vim"]
+	path = dotfiles/.vim/pack/plugins/start/vindent.vim
+	url = https://github.com/jessekelighine/vindent.vim.git
