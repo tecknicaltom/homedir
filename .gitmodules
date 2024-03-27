@@ -1,30 +1,30 @@
 [submodule "dotfiles/.vim/bundle/Recover.vim"]
-	path = dotfiles/.vim/bundle/Recover.vim
+	path = dotfiles/.vim/pack/plugins/start/Recover.vim
 	url = https://github.com/chrisbra/Recover.vim.git
 [submodule "dotfiles/.vim/bundle/git-time-lapse"]
-	path = dotfiles/.vim/bundle/git-time-lapse
+	path = dotfiles/.vim/pack/plugins/start/git-time-lapse
 	url = https://github.com/vim-scripts/git-time-lapse
 [submodule "dotfiles/.vim/bundle/linediff.vim"]
-	path = dotfiles/.vim/bundle/linediff.vim
+	path = dotfiles/.vim/pack/plugins/start/linediff.vim
 	url = https://github.com/AndrewRadev/linediff.vim
 [submodule "dotfiles/.vim/bundle/perldoc-vim"]
-	path = dotfiles/.vim/bundle/perldoc-vim
+	path = dotfiles/.vim/pack/plugins/start/perldoc-vim
 	url = https://github.com/hotchpotch/perldoc-vim.git
 [submodule "dotfiles/.vim/bundle/vim-templates"]
-	path = dotfiles/.vim/bundle/vim-templates
+	path = dotfiles/.vim/pack/plugins/start/vim-templates
 	url = https://github.com/ap/vim-templates
 [submodule "dotfiles/.vim/bundle/spelunker.vim"]
-	path = dotfiles/.vim/bundle/spelunker.vim
+	path = dotfiles/.vim/pack/plugins/start/spelunker.vim
 	url = https://github.com/kamykn/spelunker.vim
 [submodule "dotfiles/.vim/bundle/gitdiff.vim"]
-	path = dotfiles/.vim/bundle/gitdiff.vim
+	path = dotfiles/.vim/pack/plugins/start/gitdiff.vim
 	url = https://github.com/vim-scripts/gitdiff.vim
 [submodule "dotfiles/.vim/bundle/vim-vue"]
-	path = dotfiles/.vim/bundle/vim-vue
+	path = dotfiles/.vim/pack/plugins/start/vim-vue
 	url = https://github.com/posva/vim-vue.git
 [submodule "dotfiles/.vim/bundle/vim-jsonpath"]
-	path = dotfiles/.vim/bundle/vim-jsonpath
+	path = dotfiles/.vim/pack/plugins/start/vim-jsonpath
 	url = https://github.com/mogelbrod/vim-jsonpath
 [submodule "dotfiles/.vim/bundle/molokai"]
-	path = dotfiles/.vim/bundle/molokai
+	path = dotfiles/.vim/pack/plugins/start/molokai
 	url = https://github.com/tomasr/molokai
